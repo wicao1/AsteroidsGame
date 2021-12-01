@@ -34,5 +34,6 @@ public void keyPressed(){
     rsBob.myXspeed = rsBob.myYspeed = 0;
     rsBob.myCenterX = (int)(Math.random()*500);
     rsBob.myCenterY = (int)(Math.random()*500);
+    rsBob.myPointDirection = (int)(Math.random()*500);
   }
 }

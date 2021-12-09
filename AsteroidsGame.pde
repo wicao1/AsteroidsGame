@@ -1,3 +1,4 @@
+ArrayList <Asteroid> myAsteroid = new ArrayList <Asteroid>();
 Spaceship rsBob = new Spaceship(); // rs = rocketship
 Star [] starfield = new Star[300]; 
 public void setup() 
@@ -5,7 +6,10 @@ public void setup()
   size(500,500);
   noStroke();
   for(int i=0; i<starfield.length; i++){
-  starfield[i] = new Star();
+    starfield[i] = new Star();
+  }
+  for(int i=0; i<20; i++){
+    myAsteroid.add(new Asteroid());  
   }
 }
 public void draw() 
@@ -15,6 +19,14 @@ public void draw()
   rsBob.show();
   for(int i=0; i<starfield.length; i++){
     starfield[i].show();
+  }
+  for(int i=0; i<myAsteroid.size(); i++){
+    myAsteroid.get(i).move();
+    myAsteroid.get(i).show();
+    float d = dist((float)rsBob.getX(),(float)rsBob.getY(), (float)myAsteroid.get(i).getX(), (float)myAsteroid.get(i).getY());
+    if(d<10){
+      myAsteroid.remove(i);
+    }
   }
 }
 public void keyPressed(){
